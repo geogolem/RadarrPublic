@@ -18,6 +18,7 @@ interface MovieIndexProgressBarProps {
   status: MovieStatus;
   hasFile: boolean;
   isAvailable: boolean;
+  dateConsideredAvailable: string;
   width: number;
   detailedProgressBar: boolean;
   bottomRadius?: boolean;
@@ -32,6 +33,7 @@ function MovieIndexProgressBar(props: MovieIndexProgressBarProps) {
     status,
     hasFile,
     isAvailable,
+    dateConsideredAvailable,
     width,
     detailedProgressBar,
     bottomRadius,
@@ -76,6 +78,7 @@ function MovieIndexProgressBar(props: MovieIndexProgressBarProps) {
       showText={detailedProgressBar}
       width={width}
       text={queueStatusText ? queueStatusText : movieStatus}
+      title={movieStatus === 'NotAvailable' ? dateConsideredAvailable : ''}
     />
   );
 }
